@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+    <head>
+        <style type='text/css'>
+            .sidenav{
+                height: 100px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content:space-evenly;
+                align-items: center;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                overflow-x: hidden;
+            }
+
+            .sidenav a{
+                align-items: center;
+                appearance: none;
+                background-color: #FCFCFD;
+                border-radius: 4px;
+                border-width: 0;
+                box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,rgba(45, 35, 66, 0.15) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+                box-sizing: border-box;
+                color: #36395A;
+                cursor: pointer;
+                display: inline-flex;
+                font-family: "JetBrains Mono",monospace;
+                height: 48px;
+                justify-content: center;
+                line-height: 1;
+                list-style: none;
+                overflow: hidden;
+                padding-left: 16px;
+                padding-right: 16px;
+                position: relative;
+                text-align: left;
+                text-decoration: none;
+                transition: box-shadow .15s,transform .15s;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                white-space: nowrap;
+                will-change: box-shadow,transform;
+                font-size: 18px;
+            }
+
+            .sidenav a:focus {
+                box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+               }
+               
+            .sidenav a:hover {
+                box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px, rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+                transform: translateY(-2px);
+                color: #5f666d;
+            }
+            .sidenav a:active {
+                box-shadow: #D6D6E7 0 3px 7px inset;
+                transform: translateY(2px);
+               }
+
+            .main{
+                font-size: 20px;
+                margin-top: 100px;
+                padding: 0px 10px;
+            }
+        </style>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <title>{% block title %}To Do List{% endblock %}</title>
+    </head>
+    <body>
+        <ul class='nav nav-tabs navbar-light bg-light sidenav'>
+            <li class="nav-item">
+                <a class="nav-link" href='/home'>Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href='/create'>Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href='{% url 'todo_lists' %}'>Todos</a>
+            </li>
+            
+            
+            
+        </ul>
+        <div id="content" name="content" class='main'>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <hr class="mt-0 mb-4">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+                
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
