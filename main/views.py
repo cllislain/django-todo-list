@@ -7,8 +7,6 @@ from .forms import CreateNewList
 
 def todo_lists(response):
     ls = ToDoList.objects.all()
-    post = response.POST
-
     return render(response, "main/todo_lists.html", {"todo_lists": ls})
 
 
@@ -59,6 +57,7 @@ def create(response):
             n = form.cleaned_data["name"]
             t = ToDoList(name=n)
             t.save()
+            response.user.todolist.add(t)
         return HttpResponseRedirect("/todo-list/{}/".format(t.id))
 
     else:
